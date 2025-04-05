@@ -7,6 +7,8 @@ const CartItem = ({ item, updateQuantityChange, handleRemove }) => {
   // const cart_code = localStorage.getItem('cart_code');
   // const product_id = item.product.id;
   // const product_local = localStorage.getItem
+  const product = item.product.slug;
+  const cat_slug = item.product.category.slug;
 
   
   return (
@@ -17,7 +19,7 @@ const CartItem = ({ item, updateQuantityChange, handleRemove }) => {
             <img src={`${Base_url}${item.product.image}`} className="img-sm" alt='product_image' />
           </div>
           <figcaption className="info">
-            <a href={``} className="title text-dark">
+            <a href={`/store/${cat_slug}/${product}`} className="title text-dark">
               {item.product.product_name}
             </a>
 

@@ -118,7 +118,7 @@ const CartPage = () => {
     return (
       <section className="section-content padding-y bg">
         <div className="container" style={{ paddingTop: "50px" }}>
-          <div class="alert alert-primary" role="alert">
+          <div className="alert alert-primary" role="alert">
             No items in cart yet.
           </div>
         </div>
