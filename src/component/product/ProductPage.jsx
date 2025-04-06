@@ -41,7 +41,7 @@ const ProductPage = ({}) => {
     } else {
         return (
             <section className="section-content padding-y bg">
-                <div className="container">
+                <div className="container" style={{padding: '50px'}}>
                     <div className="card">
                         <div className="row no-gutters">
                             <ProductGallery image={product.image} />

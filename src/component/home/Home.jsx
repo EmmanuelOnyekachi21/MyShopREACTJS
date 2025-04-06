@@ -13,7 +13,7 @@ const Home = () => {
     api.get('store')
     .then((res) => {
       console.log(res.data);
-      setProducts(res.data)
+      setProducts(res.data.results)
       setLoading(false)
     })
     .catch(err => {
