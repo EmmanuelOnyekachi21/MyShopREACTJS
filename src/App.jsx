@@ -15,6 +15,7 @@ import ProductPage from './component/product/ProductPage';
 import api from './api';
 import { CartContext } from './context/CartContext';
 import CartPage from './component/cart/CartPage';
+import SearchResults from './component/search/SearchResults'
 
 
 const App = () => {
@@ -41,6 +42,7 @@ const App = () => {
             <Route path='/store' element={<StoreSection />} />
             <Route path='*' element={<NotFoundPage />} />
             <Route path='/store/:category_slug' element={<StoreSection />} />
+            <Route path='/store/search/:query' element={<SearchResults />} />
             <Route path='/store/:category_slug/:product_slug' element={<ProductPage />} />
             <Route path='cart' element={<CartPage />} />
           </Route>

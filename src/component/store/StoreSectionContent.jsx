@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
 import StoreAside from './StoreAside'
-import api from '../../api';
 import CardContainer from './CardContainer';
 import CardContainerPlaceHolderContainer from './CardContainerPlaceHolderContainer';
-import useCategories from '../../hooks/useCategories';
 
-const StoreSectionContent = ({ products, loading, previous, next, setProductUrl, currentPage, totalPages }) => {
+const StoreSectionContent = ({ products, loading, previous, next, setProductUrl, currentPage, totalPages, productLength }) => {
     // Function to build the pagination URL dynamically
     const buildPageUrl = (pageNum) => {
         const base = previous || next || '/store'; // Start with either previous or next URL or default to /store
@@ -31,7 +28,7 @@ const StoreSectionContent = ({ products, loading, previous, next, setProductUrl,
 
                                 <header className="border-bottom mb-4 pb-3">
                                     <div className="form-inline">
-                                        <span className="mr-md-auto"><strong>{products.length}</strong> Items found</span>
+                                        <span className="mr-md-auto"><strong>{productLength}</strong> Items found</span>
                                     </div>
                                 </header>
 

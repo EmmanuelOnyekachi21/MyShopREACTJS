@@ -15,6 +15,7 @@ const StoreSection = () => {
     const [productUrl, setProductUrl] = useState('/store'); // The URL to fetch products (with category_slug if provided)
     const [currentPage, setCurrentPage] = useState(1); // Tracks the current page number
     const [totalPages, setTotalPages] = useState(1); // Stores the total number of pages (calculated from the count)
+    const [productLength, setProductLength] = useState(0); // Stores number of product(s) fetched.
 
     useEffect(function () {
         setLoading(true); // Start loading when fetching data
@@ -30,7 +31,7 @@ const StoreSection = () => {
                 setprevLink(res.data.previous); // Set the URL for the previous page (if exists)
                 setnextLink(res.data.next); // Set the URL for the next page (if exists)
                 setTotalPages(Math.ceil(res.data.count / 6)); // Calculate total pages based on total products (assumes 6 per page)
-
+                setProductLength(res.data.count);
                 // Extract current page from the URL (pagination query string)
                 const pageParam = new URLSearchParams(new URL(res.config.url, window.location.origin).search).get('page')
                 setCurrentPage(pageParam ? parseInt(pageParam) : 1); // Set the current page number, defaulting to 1 if not found
@@ -67,6 +68,7 @@ const StoreSection = () => {
                 setProductUrl={setProductUrl} // Function to change productUrl for pagination
                 currentPage={currentPage} // The current page
                 totalPages={totalPages} // Total number of pages
+                productLength={productLength}
             />
         </div>
     )
